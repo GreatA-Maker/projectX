@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Context } from '../context';
 import { useRouter } from 'next/router';
 
@@ -7,8 +7,9 @@ import axios from 'axios';
 export default function Auth() {
   const { username, secret, setUsername, setSecret } = useContext(Context);
 
-
   const router = useRouter();
+
+
 
   function onSubmit(e) {
     e.preventDefault();
@@ -16,10 +17,11 @@ export default function Auth() {
     if (username.length === 0 || secret.length === 0) return;
 
     axios
-      .post('https://red-cloudy-pike.cyclic.app/admin/new', {
-        email: username,
-        password: secret,
-      })
+      .put(
+        'https://api.chatengine.io/users/',
+        { username, secret },
+        { headers: { 'Private-key': 'd980513d-5e9e-4cb0-8ce1-2701dfa3dd5a' } }
+      )
       .then((res) => router.push('/chats'));
   }
 
