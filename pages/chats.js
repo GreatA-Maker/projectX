@@ -18,9 +18,17 @@ export default function Chats() {
   const router = useRouter()
 
   useEffect(() => {
+    if (typeof document !== null) {
+      setShowChat(true)
 
+    }
   })
-  return <div className="background">
 
+  if (!showChat) return <div></div>
+
+  return <div className="background">
+    <div className="shadow">
+      <ChatEngine height='calc(100ch - 200px)' projectID="" userName={username} userSecret={secret} />
+    </div>
   </div>;
 }
