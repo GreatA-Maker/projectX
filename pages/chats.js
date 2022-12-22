@@ -1,16 +1,9 @@
-import { useRouter } from "next/dist/client/router";
-import React, { useContext, useState, useEffect, useReducer } from "react";
+import { useRouter } from "next/router";
+import React, { useContext, useState, useEffect } from "react";
 
 import { Context } from "../context"
-import dynamic from "./next/dynamic"
+import { ChatEngine } from 'react-chat-engine'
 
-const ChatEngine = dynamic(() => {
-  import("react-chat-engine").thne((module) => module.ChatEngine)
-})
-
-const MessageFormSocial = dynamic(() => {
-  import("react-chat-engine").thne((module) => module.MessageFormSocial)
-})
 
 export default function Chats() {
   const { username, secret } = useContext(Context)
@@ -18,24 +11,30 @@ export default function Chats() {
   const router = useRouter()
 
   useEffect(() => {
-    if (typeof document !== null) {
+    if (typeof document !== undefined) {
       setShowChat(true)
 
     }
-  })
+  },[])
 
   useEffect(() => {
-    if (username.length === 0 || secret === 0) {
+    if (username.length === "" || secret === "") {
       router.push("/")
     }
-  })
+  },[username,secret])
 
-  if (!showChat) return <div></div>
+  if (!showChat) return <div />
 
   return <div className="background">
     <div className="shadow">
-      <ChatEngine height='calc(100vh - 200px)' projectID="5d9921ec-ae3b-407f-83e5-085a2ecf040c" userName={username} userSecret={secret} renderNewMessageFrom={() => <MessageFormSocial />}
-      />
+    
+      <ChatEngine
+      height='calc(100vh - 200px)'
+      publicKey={'5d9921ec-ae3b-407f-83e5-085a2ecf040c'}
+      userName={username}
+      userSecret={secret}
+      
+    />
 
     </div>
   </div>;
