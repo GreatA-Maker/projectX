@@ -28,7 +28,7 @@ export default function Chats() {
 
   return <div className="background">
     <div className="shadow">
-      <ChatEngine height='calc(100ch - 200px)' projectID="" userName={username} userSecret={secret} />
+      <ChatEngine height='calc(100vh - 200px)' projectID="" userName={username} userSecret={secret} />
     </div>
   </div>;
 }
