@@ -29,7 +29,7 @@ export default function Auth() {
     <div className="background">
       <div className="auth-container">
         <form className="auth-form" onSubmit={(e) => onSubmit(e)}>
-          <div className="auth-title">NextJS chat</div>
+          <div className="auth-title">Chat Login</div>
 
           <div className="input-container">
             <input
