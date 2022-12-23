@@ -1,5 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&display=swap");
 
 * {
-  font-family: Quicksand !important;
+	font-family: Quicksand !important;
+}
+
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #428151;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #013e0f;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
 }
