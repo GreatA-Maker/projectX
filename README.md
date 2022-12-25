@@ -1,6 +1,6 @@
 # NextJS Chat Tutorial
 This is our Hackathon project in revision module. We, team of 4 members completed this in 48hrs. The project is a Chatting app for students where students can exchange
-and upload there notes via chats to each other..
+and upload there notes via chats to each other.
 
 # Login Page
 
